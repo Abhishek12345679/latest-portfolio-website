@@ -15,15 +15,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const mouse = { x: 0, y: 0 };
-  const circle = { x: 0, y: 0 };
-  const speed = 0.25;
-
   useEffect(() => {
+    const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    const circle = { x: 0, y: 0 };
+    const speed = 0.25;
+
     if (document) {
       const circleCursor = document.querySelector(
         ".circle-cursor"
       ) as HTMLElement;
+
       window.addEventListener("mousemove", (e) => {
         mouse.x = e.x;
         mouse.y = e.y;
@@ -50,7 +51,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={AzeretMono.className}>
       <body>
-        <div className="circle-cursor"></div>
         <header className="flex p-4 justify-between">
           <div className="flex-col">
             <p>GODLESS_COMPLEX</p>
@@ -58,13 +58,13 @@ export default function RootLayout({
           <nav className="ml-4">
             <ul className="flex space-x-6">
               <li>
-                <Link href="#">[Home]</Link>
+                <Link href="/">[Home]</Link>
               </li>
               <li>
-                <Link href="#">[Work]</Link>
+                <Link href="/work">[Work]</Link>
               </li>
               <li>
-                <Link href="#">[About Me]</Link>
+                <Link href="/about">[About Me]</Link>
               </li>
               <li>
                 <a
@@ -76,11 +76,13 @@ export default function RootLayout({
                 </a>
               </li>
               <li>
-                <Link href="#">[Contact Us]</Link>
+                <Link href="/contact">[Contact Us]</Link>
               </li>
             </ul>
           </nav>
         </header>
+        <div className="circle-cursor"></div>
+
         {children}
         <footer></footer>
       </body>
