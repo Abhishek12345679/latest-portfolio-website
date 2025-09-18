@@ -67,7 +67,13 @@ export default function RootLayout({
                 <Link href="#">[About Me]</Link>
               </li>
               <li>
-                <a href="#">[Resume]</a>
+                <a
+                  href="https://drive.google.com/file/d/1Hr_Cm2ABd7nt6M9nddPJ5eDQ2KYvuMOl/view?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  [Resume]
+                </a>
               </li>
               <li>
                 <Link href="#">[Contact Us]</Link>
