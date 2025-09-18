@@ -25,7 +25,7 @@
   align-items: center;
   width: 100px;
   height: 70px;
-  left: max(calc(100px * 8), 100%);
+  left: max(calc(100px * 7), 100%);
   animation-name: scrollLeft;
   animation-duration: 30s;
   animation-timing-function: linear;
@@ -41,28 +41,25 @@
 /* delay formula:
 animation-delay = (total duration/number of items) * (total number of items - items passed) * -1 */
 .item1 {
-  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+  animation-delay: calc(30s / 7 * (7 - 1) * -1);
 }
 .item2 {
-  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+  animation-delay: calc(30s / 7 * (7 - 2) * -1);
 }
 .item3 {
-  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+  animation-delay: calc(30s / 7 * (7 - 3) * -1);
 }
 .item4 {
-  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+  animation-delay: calc(30s / 7 * (7 - 4) * -1);
 }
 .item5 {
-  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+  animation-delay: calc(30s / 7 * (7 - 5) * -1);
 }
 .item6 {
-  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+  animation-delay: calc(30s / 7 * (7 - 6) * -1);
 }
 .item7 {
-  animation-delay: calc(30s / 8 * (8 - 7) * -1);
-}
-.item8 {
-  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+  animation-delay: calc(30s / 7 * (7 - 7) * -1);
 }
 
 .circle-cursor {
@@ -72,7 +69,7 @@ animation-delay = (total duration/number of items) * (total number of items - it
   height: 1.25rem;
   width: 1.25rem;
   border-radius: 9999rem;
-  background-color: #571c1c;
+  background-color: #000000e7;
   mix-blend-mode: difference;
   pointer-events: none;
   position: fixed;

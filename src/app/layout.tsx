@@ -3,6 +3,7 @@
 import "./globals.css";
 import { useEffect } from "react";
 import { Azeret_Mono } from "next/font/google";
+import Link from "next/link";
 
 const AzeretMono = Azeret_Mono({
   subsets: ["latin"],
@@ -56,11 +57,21 @@ export default function RootLayout({
           </div>
           <nav className="ml-4">
             <ul className="flex space-x-6">
-              <li>[Home]</li>
-              <li>[Work]</li>
-              <li>[About Me]</li>
-              <li></li>
-              <li>[Contact Us]</li>
+              <li>
+                <Link href="#">[Home]</Link>
+              </li>
+              <li>
+                <Link href="#">[Work]</Link>
+              </li>
+              <li>
+                <Link href="#">[About Me]</Link>
+              </li>
+              <li>
+                <a href="#">[Resume]</a>
+              </li>
+              <li>
+                <Link href="#">[Contact Us]</Link>
+              </li>
             </ul>
           </nav>
         </header>
