@@ -1,30 +1,66 @@
-import type { Metadata } from "next";
-import "./globals.css";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Abhishek",
-  description: "We can do it!",
-};
+import "./globals.css";
+import { useEffect } from "react";
+import { Azeret_Mono } from "next/font/google";
+
+const AzeretMono = Azeret_Mono({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const mouse = { x: 0, y: 0 };
+  const circle = { x: 0, y: 0 };
+  const speed = 0.25;
+
+  useEffect(() => {
+    if (document) {
+      const circleCursor = document.querySelector(
+        ".circle-cursor"
+      ) as HTMLElement;
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.x;
+        mouse.y = e.y;
+      });
+
+      const tick = () => {
+        // to give that catching up to the arrow/cursor look
+
+        circle.x += (mouse.x - circle.x) * speed;
+        circle.y += (mouse.y - circle.y) * speed;
+
+        const translateTransform = `translate(${circle.x}px, ${circle.y}px)`;
+
+        circleCursor.style.transform = translateTransform;
+
+        requestAnimationFrame(tick);
+      };
+      tick();
+    }
+
+    return () => window.removeEventListener("mousemove", () => {});
+  }, []);
+
   return (
-    <html lang="en">
+    <html lang="en" className={AzeretMono.className}>
       <body>
+        <div className="circle-cursor"></div>
         <header className="flex p-4 justify-between">
           <div className="flex-col">
-            <p className="font-bold font-sans">SAH</p>
-            <p className="font-bold font-sans">ABHISHEK</p>
+            <p>GODLESS_COMPLEX</p>
           </div>
           <nav className="ml-4">
             <ul className="flex space-x-6">
-              <li>[ Home ]</li>
-              <li>[ Work ]</li>
-              <li>[ About Me ]</li>
-              <li>[ Contact Us ]</li>
+              <li>[Home]</li>
+              <li>[Work]</li>
+              <li>[About Me]</li>
+              <li></li>
+              <li>[Contact Us]</li>
             </ul>
           </nav>
         </header>
