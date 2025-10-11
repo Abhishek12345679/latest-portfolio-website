@@ -1,5 +1,8 @@
+"use client";
+
 import LetterSwapPingPong from "@/components/fancy/text/letter-swap-pingpong-anim";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export type HeaderLinkProps = {
   label: string;
@@ -12,6 +15,10 @@ export default function HeaderLink({
   staggerFrom = "first",
   to,
 }: HeaderLinkProps) {
+  const pathName = usePathname();
+
+  const isActive = to === pathName || (pathName.startsWith(to) && to !== "/");
+
   return (
     <li>
       <Link href={to}>
@@ -19,7 +26,11 @@ export default function HeaderLink({
           label={label}
           staggerFrom={staggerFrom}
           reverse={false}
-          className="font-normal hover:text-gray-600"
+          className={
+            isActive
+              ? "font-bold hover:text-gray-600"
+              : "font-normal hover:text-gray-600"
+          }
         />
       </Link>
     </li>
